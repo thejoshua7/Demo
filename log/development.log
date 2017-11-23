@@ -1,0 +1,349 @@
+  [1m[36m (15.5ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "body" character varying NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (14.0ms)[0m  CREATE TABLE "questions" ("id" serial primary key, "title" character varying NOT NULL, "private" boolean DEFAULT 'f', "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (21.8ms)[0m  [1mCREATE TABLE "tenants" ("id" serial primary key, "name" character varying NOT NULL, "api_key" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "access_count" integer DEFAULT 0 NOT NULL) [0m
+  [1m[35m (14.6ms)[0m  CREATE TABLE "users" ("id" serial primary key, "name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (11.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (6.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171013212442')
+  [1m[36m (2.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160512220921')[0m
+  [1m[35m (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160512220912')
+  [1m[36m (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160512220842')[0m
+  [1m[35m (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160512220935')
+  [1m[36m (13.8ms)[0m  [1mCREATE TABLE "answers" ("id" serial primary key, "body" character varying NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (15.3ms)[0m  CREATE TABLE "questions" ("id" serial primary key, "title" character varying NOT NULL, "private" boolean DEFAULT 'f', "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (16.6ms)[0m  [1mCREATE TABLE "tenants" ("id" serial primary key, "name" character varying NOT NULL, "api_key" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "access_count" integer DEFAULT 0 NOT NULL) [0m
+  [1m[35m (13.5ms)[0m  CREATE TABLE "users" ("id" serial primary key, "name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (7.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (6.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20171013212442')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160512220921')[0m
+  [1m[35m (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160512220912')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160512220842')[0m
+  [1m[35m (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160512220935')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "tenants" ("name", "created_at", "updated_at", "api_key") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Schoen, Beahan and Gottlieb"], ["created_at", "2017-11-23 04:20:57.430868"], ["updated_at", "2017-11-23 04:20:57.430868"], ["api_key", "8051f6e302687850c203498f4a0557b2"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tenants" ("name", "created_at", "updated_at", "api_key") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Rogahn Group"], ["created_at", "2017-11-23 04:20:57.437719"], ["updated_at", "2017-11-23 04:20:57.437719"], ["api_key", "57a401879fb77ddd45a3ad89cd9c0ddf"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tenants" ("name", "created_at", "updated_at", "api_key") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Anderson Group"], ["created_at", "2017-11-23 04:20:57.441784"], ["updated_at", "2017-11-23 04:20:57.441784"], ["api_key", "e82e31136c3ceceece34db730101a879"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tenants" ("name", "created_at", "updated_at", "api_key") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Feeney and Sons"], ["created_at", "2017-11-23 04:20:57.445675"], ["updated_at", "2017-11-23 04:20:57.445675"], ["api_key", "226ded481811e1cc24a1caf18a4854f5"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tenants" ("name", "created_at", "updated_at", "api_key") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Hansen-Howe"], ["created_at", "2017-11-23 04:20:57.449632"], ["updated_at", "2017-11-23 04:20:57.449632"], ["api_key", "d496bbec483cb6f5e203b156c1ecb8aa"]]
+  [1m[35m (6.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tenants" ("name", "created_at", "updated_at", "api_key") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Auer Inc"], ["created_at", "2017-11-23 04:20:57.458056"], ["updated_at", "2017-11-23 04:20:57.458056"], ["api_key", "5c8359e89c37f8974f8ffedb1aa76943"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tenants" ("name", "created_at", "updated_at", "api_key") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Kautzer Group"], ["created_at", "2017-11-23 04:20:57.463204"], ["updated_at", "2017-11-23 04:20:57.463204"], ["api_key", "38ef66d77e28f46558b642eee8732fe3"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tenants" ("name", "created_at", "updated_at", "api_key") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Block, Runolfsson and Christiansen"], ["created_at", "2017-11-23 04:20:57.467857"], ["updated_at", "2017-11-23 04:20:57.467857"], ["api_key", "1e447e9f67af38eed955bfc344e354e3"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "tenants" ("name", "created_at", "updated_at", "api_key") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Hessel-Wyman"], ["created_at", "2017-11-23 04:20:57.472697"], ["updated_at", "2017-11-23 04:20:57.472697"], ["api_key", "07973a3f26476699d5dff5461358324d"]]
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tenants" ("name", "created_at", "updated_at", "api_key") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Smitham Group"], ["created_at", "2017-11-23 04:20:57.477032"], ["updated_at", "2017-11-23 04:20:57.477032"], ["api_key", "ac4b6e62d23463761ebd55d9cdaffdf7"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Randall Bruen"], ["created_at", "2017-11-23 04:20:57.494017"], ["updated_at", "2017-11-23 04:20:57.494017"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Reiko Runolfsson"], ["created_at", "2017-11-23 04:20:57.499098"], ["updated_at", "2017-11-23 04:20:57.499098"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tempie Block"], ["created_at", "2017-11-23 04:20:57.502996"], ["updated_at", "2017-11-23 04:20:57.502996"]]
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Angelika Beatty"], ["created_at", "2017-11-23 04:20:57.507296"], ["updated_at", "2017-11-23 04:20:57.507296"]]
+  [1m[36m (5.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Iesha Schaefer"], ["created_at", "2017-11-23 04:20:57.515933"], ["updated_at", "2017-11-23 04:20:57.515933"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Lucius Block"], ["created_at", "2017-11-23 04:20:57.521546"], ["updated_at", "2017-11-23 04:20:57.521546"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Eugene Goyette"], ["created_at", "2017-11-23 04:20:57.526667"], ["updated_at", "2017-11-23 04:20:57.526667"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Jeanne Lind"], ["created_at", "2017-11-23 04:20:57.531536"], ["updated_at", "2017-11-23 04:20:57.531536"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tyesha Feeney"], ["created_at", "2017-11-23 04:20:57.535759"], ["updated_at", "2017-11-23 04:20:57.535759"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Raymon Hackett"], ["created_at", "2017-11-23 04:20:57.539951"], ["updated_at", "2017-11-23 04:20:57.539951"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Herlinda Stehr"], ["created_at", "2017-11-23 04:20:57.544871"], ["updated_at", "2017-11-23 04:20:57.544871"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Merrilee Schneider"], ["created_at", "2017-11-23 04:20:57.549649"], ["updated_at", "2017-11-23 04:20:57.549649"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Raymundo Dibbert"], ["created_at", "2017-11-23 04:20:57.554664"], ["updated_at", "2017-11-23 04:20:57.554664"]]
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Riva Predovic"], ["created_at", "2017-11-23 04:20:57.559685"], ["updated_at", "2017-11-23 04:20:57.559685"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Chantelle Harvey"], ["created_at", "2017-11-23 04:20:57.563970"], ["updated_at", "2017-11-23 04:20:57.563970"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Rebecka Lindgren"], ["created_at", "2017-11-23 04:20:57.567857"], ["updated_at", "2017-11-23 04:20:57.567857"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Roxie Bergstrom"], ["created_at", "2017-11-23 04:20:57.572576"], ["updated_at", "2017-11-23 04:20:57.572576"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Andrea Paucek"], ["created_at", "2017-11-23 04:20:57.577294"], ["updated_at", "2017-11-23 04:20:57.577294"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Tianna Howell"], ["created_at", "2017-11-23 04:20:57.581493"], ["updated_at", "2017-11-23 04:20:57.581493"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "Nichole Rath"], ["created_at", "2017-11-23 04:20:57.585670"], ["updated_at", "2017-11-23 04:20:57.585670"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "questions" ("title", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Lomo Four Loko keytar mixtape viral fap high life?"], ["user_id", 7], ["created_at", "2017-11-23 04:20:57.624145"], ["updated_at", "2017-11-23 04:20:57.624145"]]
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Cosby sweater gluten-free thundercats photo booth Portland Banksy."], ["user_id", 13], ["question_id", 1], ["created_at", "2017-11-23 04:20:57.650417"], ["updated_at", "2017-11-23 04:20:57.650417"]]
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "questions" ("title", "private", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Irony whatever wolf tofu organic keytar gentrify hoodie?"], ["private", "t"], ["user_id", 13], ["created_at", "2017-11-23 04:20:57.659805"], ["updated_at", "2017-11-23 04:20:57.659805"]]
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Jean shorts fixie raw denim keffiyeh squid next level fanny pack tumblr Four Loko."], ["user_id", 10], ["question_id", 2], ["created_at", "2017-11-23 04:20:57.665462"], ["updated_at", "2017-11-23 04:20:57.665462"]]
+  [1m[36m (5.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "questions" ("title", "private", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Yr before they sold out whatever Pitchfork you probably haven't heard of them sartorial?"], ["private", "t"], ["user_id", 11], ["created_at", "2017-11-23 04:20:57.674040"], ["updated_at", "2017-11-23 04:20:57.674040"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Vinyl Williamsburg jean shorts +1 vice vegan butcher Cosby Sweater."], ["user_id", 11], ["question_id", 3], ["created_at", "2017-11-23 04:20:57.680547"], ["updated_at", "2017-11-23 04:20:57.680547"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "questions" ("title", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Austin tofu scenester Portland cliche McSweeney's?"], ["user_id", 7], ["created_at", "2017-11-23 04:20:57.686665"], ["updated_at", "2017-11-23 04:20:57.686665"]]
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Cosby sweater wolf iPhone trust fund etsy chambray echo park mixtape put a bird on it."], ["user_id", 8], ["question_id", 4], ["created_at", "2017-11-23 04:20:57.692850"], ["updated_at", "2017-11-23 04:20:57.692850"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Blog +1 artisan tumblr bicycle rights."], ["user_id", 1], ["question_id", 4], ["created_at", "2017-11-23 04:20:57.698320"], ["updated_at", "2017-11-23 04:20:57.698320"]]
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "questions" ("title", "private", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Wolf 8-bit farm-to-table Rerry Richardson single-origin coffee leggings butcher photo booth trust fund?"], ["private", "t"], ["user_id", 4], ["created_at", "2017-11-23 04:20:57.704050"], ["updated_at", "2017-11-23 04:20:57.704050"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Craft beer Marfa McSweeney's salvia ethical keytar Cosby Sweater organic."], ["user_id", 20], ["question_id", 5], ["created_at", "2017-11-23 04:20:57.709907"], ["updated_at", "2017-11-23 04:20:57.709907"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "questions" ("title", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Butcher beard whatever Wayfarers iPhone?"], ["user_id", 1], ["created_at", "2017-11-23 04:20:57.715002"], ["updated_at", "2017-11-23 04:20:57.715002"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Banh mi Shoreditch Brooklyn sartorial +1 yr McSweeney's."], ["user_id", 12], ["question_id", 6], ["created_at", "2017-11-23 04:20:57.720576"], ["updated_at", "2017-11-23 04:20:57.720576"]]
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Artisan beard butcher fixie art PBR American Apparel viral locavore."], ["user_id", 3], ["question_id", 6], ["created_at", "2017-11-23 04:20:57.726280"], ["updated_at", "2017-11-23 04:20:57.726280"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Portland etsy Four Loko moon irony gentrify Brooklyn salvia trust fund."], ["user_id", 9], ["question_id", 6], ["created_at", "2017-11-23 04:20:57.731930"], ["updated_at", "2017-11-23 04:20:57.731930"]]
+  [1m[35m (2.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "questions" ("title", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Food truck viral quinoa bicycle rights Cosby Sweater yr?"], ["user_id", 19], ["created_at", "2017-11-23 04:20:57.737467"], ["updated_at", "2017-11-23 04:20:57.737467"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Mcsweeney's 8-bit vice bicycle rights photo booth."], ["user_id", 7], ["question_id", 7], ["created_at", "2017-11-23 04:20:57.743498"], ["updated_at", "2017-11-23 04:20:57.743498"]]
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "High life retro Carles synth fixie irony lomo."], ["user_id", 17], ["question_id", 7], ["created_at", "2017-11-23 04:20:57.748936"], ["updated_at", "2017-11-23 04:20:57.748936"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Four loko Pitchfork organic tattooed craft beer."], ["user_id", 2], ["question_id", 7], ["created_at", "2017-11-23 04:20:57.755254"], ["updated_at", "2017-11-23 04:20:57.755254"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "questions" ("title", "private", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Chambray mlkshk hoodie fanny pack next level dreamcatcher cardigan art irony?"], ["private", "t"], ["user_id", 11], ["created_at", "2017-11-23 04:20:57.761799"], ["updated_at", "2017-11-23 04:20:57.761799"]]
+  [1m[36m (5.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Salvia put a bird on it lo-fi whatever squid etsy."], ["user_id", 10], ["question_id", 8], ["created_at", "2017-11-23 04:20:57.771410"], ["updated_at", "2017-11-23 04:20:57.771410"]]
+  [1m[35m (6.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "questions" ("title", "private", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Readymade tumblr synth food truck Marfa keffiyeh fixie master cleanse?"], ["private", "t"], ["user_id", 8], ["created_at", "2017-11-23 04:20:57.780335"], ["updated_at", "2017-11-23 04:20:57.780335"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Messenger bag lo-fi DIY put a bird on it tattooed stumptown."], ["user_id", 19], ["question_id", 9], ["created_at", "2017-11-23 04:20:57.785930"], ["updated_at", "2017-11-23 04:20:57.785930"]]
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Salvia Wes Anderson quinoa stumptown hoodie VHS."], ["user_id", 2], ["question_id", 9], ["created_at", "2017-11-23 04:20:57.790807"], ["updated_at", "2017-11-23 04:20:57.790807"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "questions" ("title", "private", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Tumblr Wes Anderson +1 next level jean shorts biodiesel master cleanse organic?"], ["private", "t"], ["user_id", 6], ["created_at", "2017-11-23 04:20:57.794672"], ["updated_at", "2017-11-23 04:20:57.794672"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Keffiyeh photo booth food truck fanny pack Banksy Wayfarers tattooed leggings mustache."], ["user_id", 20], ["question_id", 10], ["created_at", "2017-11-23 04:20:57.800264"], ["updated_at", "2017-11-23 04:20:57.800264"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Locavore etsy thundercats jean shorts squid Wayfarers."], ["user_id", 15], ["question_id", 10], ["created_at", "2017-11-23 04:20:57.805782"], ["updated_at", "2017-11-23 04:20:57.805782"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Retro Brooklyn cardigan thundercats sustainable put a bird on it Cosby Sweater yr."], ["user_id", 7], ["question_id", 10], ["created_at", "2017-11-23 04:20:57.810882"], ["updated_at", "2017-11-23 04:20:57.810882"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "questions" ("title", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Cosby sweater wolf thundercats put a bird on it iPhone sustainable Banksy before they sold out?"], ["user_id", 15], ["created_at", "2017-11-23 04:20:57.815404"], ["updated_at", "2017-11-23 04:20:57.815404"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Fanny pack helvetica lomo farm-to-table Williamsburg seitan mlkshk."], ["user_id", 14], ["question_id", 11], ["created_at", "2017-11-23 04:20:57.820813"], ["updated_at", "2017-11-23 04:20:57.820813"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Tattooed Marfa PBR echo park mlkshk thundercats jean shorts."], ["user_id", 12], ["question_id", 11], ["created_at", "2017-11-23 04:20:57.825843"], ["updated_at", "2017-11-23 04:20:57.825843"]]
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "questions" ("title", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Viral brunch put a bird on it synth fap bicycle rights?"], ["user_id", 2], ["created_at", "2017-11-23 04:20:57.830590"], ["updated_at", "2017-11-23 04:20:57.830590"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Next level Brooklyn thundercats biodiesel tattooed single-origin coffee iPhone VHS scenester."], ["user_id", 2], ["question_id", 12], ["created_at", "2017-11-23 04:20:57.836092"], ["updated_at", "2017-11-23 04:20:57.836092"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "questions" ("title", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Food truck jean shorts art tattooed cliche Wayfarers gentrify iPhone fap?"], ["user_id", 3], ["created_at", "2017-11-23 04:20:57.841402"], ["updated_at", "2017-11-23 04:20:57.841402"]]
+  [1m[36m (5.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Ethical yr lomo squid etsy blog."], ["user_id", 5], ["question_id", 13], ["created_at", "2017-11-23 04:20:57.850584"], ["updated_at", "2017-11-23 04:20:57.850584"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Viral you probably haven't heard of them aesthetic Rerry Richardson McSweeney's Carles."], ["user_id", 9], ["question_id", 13], ["created_at", "2017-11-23 04:20:57.856230"], ["updated_at", "2017-11-23 04:20:57.856230"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Art hoodie sustainable lomo high life Carles cred ethical locavore."], ["user_id", 11], ["question_id", 13], ["created_at", "2017-11-23 04:20:57.861722"], ["updated_at", "2017-11-23 04:20:57.861722"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("title", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Thundercats cliche echo park helvetica irony craft beer quinoa vice?"], ["user_id", 13], ["created_at", "2017-11-23 04:20:57.866347"], ["updated_at", "2017-11-23 04:20:57.866347"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Stumptown Rerry Richardson tofu master cleanse next level."], ["user_id", 17], ["question_id", 14], ["created_at", "2017-11-23 04:20:57.871171"], ["updated_at", "2017-11-23 04:20:57.871171"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("title", "private", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Diy scenester tofu freegan put a bird on it trust fund chambray McSweeney's?"], ["private", "t"], ["user_id", 12], ["created_at", "2017-11-23 04:20:57.875149"], ["updated_at", "2017-11-23 04:20:57.875149"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Sartorial biodiesel viral Cosby Sweater iPhone."], ["user_id", 7], ["question_id", 15], ["created_at", "2017-11-23 04:20:57.879534"], ["updated_at", "2017-11-23 04:20:57.879534"]]
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("title", "private", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Shoreditch sartorial art banh mi beard?"], ["private", "t"], ["user_id", 18], ["created_at", "2017-11-23 04:20:57.883630"], ["updated_at", "2017-11-23 04:20:57.883630"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Squid stumptown sartorial high life echo park Brooklyn."], ["user_id", 8], ["question_id", 16], ["created_at", "2017-11-23 04:20:57.888474"], ["updated_at", "2017-11-23 04:20:57.888474"]]
+  [1m[35m (1.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Master cleanse PBR before they sold out hoodie stumptown scenester seitan aesthetic."], ["user_id", 8], ["question_id", 16], ["created_at", "2017-11-23 04:20:57.892410"], ["updated_at", "2017-11-23 04:20:57.892410"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Brooklyn put a bird on it chambray Wayfarers seitan McSweeney's banh mi lo-fi."], ["user_id", 20], ["question_id", 16], ["created_at", "2017-11-23 04:20:57.896208"], ["updated_at", "2017-11-23 04:20:57.896208"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("title", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["title", "Wolf keffiyeh viral organic tumblr?"], ["user_id", 9], ["created_at", "2017-11-23 04:20:57.900641"], ["updated_at", "2017-11-23 04:20:57.900641"]]
+  [1m[36m (5.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Etsy fap fanny pack seitan food truck."], ["user_id", 16], ["question_id", 17], ["created_at", "2017-11-23 04:20:57.909295"], ["updated_at", "2017-11-23 04:20:57.909295"]]
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "questions" ("title", "private", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Keytar trust fund gentrify you probably haven't heard of them +1?"], ["private", "t"], ["user_id", 16], ["created_at", "2017-11-23 04:20:57.914369"], ["updated_at", "2017-11-23 04:20:57.914369"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Photo booth cardigan farm-to-table tumblr McSweeney's raw denim."], ["user_id", 5], ["question_id", 18], ["created_at", "2017-11-23 04:20:57.924259"], ["updated_at", "2017-11-23 04:20:57.924259"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "questions" ("title", "private", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Leggings craft beer vegan Shoreditch fanny pack keytar gluten-free tumblr Four Loko?"], ["private", "t"], ["user_id", 16], ["created_at", "2017-11-23 04:20:57.929283"], ["updated_at", "2017-11-23 04:20:57.929283"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Viral Wes Anderson vinyl leggings stumptown 8-bit."], ["user_id", 11], ["question_id", 19], ["created_at", "2017-11-23 04:20:57.935127"], ["updated_at", "2017-11-23 04:20:57.935127"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Scenester mustache Williamsburg jean shorts Cosby Sweater."], ["user_id", 12], ["question_id", 19], ["created_at", "2017-11-23 04:20:57.939538"], ["updated_at", "2017-11-23 04:20:57.939538"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "questions" ("title", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Dreamcatcher leggings Pitchfork jean shorts tofu biodiesel Austin?"], ["user_id", 12], ["created_at", "2017-11-23 04:20:57.943077"], ["updated_at", "2017-11-23 04:20:57.943077"]]
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Aesthetic artisan dreamcatcher viral Cosby Sweater."], ["user_id", 2], ["question_id", 20], ["created_at", "2017-11-23 04:20:57.947229"], ["updated_at", "2017-11-23 04:20:57.947229"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "American apparel letterpress readymade VHS tofu banh mi iPhone."], ["user_id", 17], ["question_id", 20], ["created_at", "2017-11-23 04:20:57.951525"], ["updated_at", "2017-11-23 04:20:57.951525"]]
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "answers" ("body", "user_id", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Keffiyeh art party locavore Marfa mlkshk."], ["user_id", 1], ["question_id", 20], ["created_at", "2017-11-23 04:20:57.955810"], ["updated_at", "2017-11-23 04:20:57.955810"]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-22 22:22:37 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/joshua/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/railties-4.2.10/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 19ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-22 22:23:10 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/joshua/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/railties-4.2.10/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-22 22:28:05 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/joshua/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/railties-4.2.10/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-22 22:37:14 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/joshua/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/railties-4.2.10/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2017-11-22 22:37:20 -0600
+Processing by QuestionsController#index as JSON
+  [1m[35mTenant Load (0.7ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."api_key" IS NULL LIMIT 1
+Completed 401 Unauthorized in 8ms (Views: 0.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/application" for 127.0.0.1 at 2017-11-22 22:37:30 -0600
+
+ActionController::RoutingError (No route matches [GET] "/application"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/joshua/.rbenv/versions/2.4.2/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+  /home/joshua/.rbenv/versions/2.4.2/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+  /home/joshua/.rbenv/versions/2.4.2/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
+
+
+  Rendered /home/joshua/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/joshua/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.8ms)
+  Rendered /home/joshua/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (12.7ms)
+  Rendered /home/joshua/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/joshua/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (44.9ms)
