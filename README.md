@@ -1,4 +1,6 @@
 # Batteries 911 Rails Engineer Candidate Interview Project
+Josh Perdue
+thejoshua at hotmail dot com
 
 (This is a fork of the [Kaleo Rails Engineer Candidate Interview Project](https://github.com/batteries911/rails-interview-project).)
 
